@@ -1,0 +1,11 @@
+# Goal - sent to server by client
+# example: specific pose a robot should move to
+uint32 num_counts # Goal message: number of counts to count up to
+---
+# Result - Final result from server to action upon completion
+# example: final pose of robot
+string result_message # Result message: simple string message for the result
+---
+# Feedback
+# example: incremental progress pose along the way to final pose
+uint32 counts_elapsed # Feedback message: number of counts elapsed

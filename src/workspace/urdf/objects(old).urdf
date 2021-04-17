@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<robot name="myfirst xmlns:xacro="http://www.ros.org/wiki/xacro"">
+
+<xacro:property name="cyllen" value="0.6" />
+<xacro:property name="cylrad" value="0.3" />
+<!-- <xacro:property name="cyl" value="cylinder" /> -->
+
+  <link name="world" />
+<!-- Cylinder 1 -->
+  <link name="cyl_1">
+    <visual>
+      <geometry>
+        <cylinder radius="${cylrad}" length="${cyllen}"/>
+      </geometry>
+      <origin xyz="0 0 -${cyllen/2}" rpy="0 0 0"/>
+      <material name="red"/>
+    </visual>
+
+    <collision>
+      <geometry>
+      	<cylinder radius="${cylrad}" length="${cyllen}"/>
+      </geometry>
+      <origin xyz="0 0 -${cyllen/2}" rpy="0 0 0"/>
+    </collision>
+    <!-- <xacro:default_interial mass="2"/> -->
+  </link>
+
+<!-- Cylinder 2 -->
+<link name="cyl_2">
+  <visual>
+    <geometry>
+      <cylinder radius="${cylrad}" length="${cyllen}"/>
+    </geometry>
+    <origin xyz="0 0 -${cyllen/2}" rpy="0 0 0"/>
+    <material name="blue"/>
+  </visual>
+
+  <collision>
+    <geometry>
+      <cylinder radius="${cylrad}" length="${cyllen}"/>
+    </geometry>
+    <origin xyz="0 0 -${cyllen/2}" rpy="0 0 0"/>
+  </collision>
+  <!-- <xacro:default_interial mass="2"/> -->
+</link>
+
+<!-- World link -->
+  <!-- <link name="world"/> -->
+
+<joint name="joint1" type="fixed">
+  <parent link="world"/>
+  <child link="cyl_1"/>
+</joint>
+
+<joint name="joint2" type="fixed">
+  <parent link="world"/>
+  <child link="cyl_2"/>
+</joint>
+
+<!-- Joint for Cylinder_1 -->
+  <!-- <joint name="cyl_1_to_world" type="fixed">
+    <parent link="world">
+    <child link="cyl_1"/>
+    <origin xyz="0 0 0"/>
+  </joint> -->
+
+<!-- Joint for Cylinder_2 -->
+<!-- <joint name="${cyl}_2_to_world">
+  <parent link="world">
+  <child link="${cyl}_2"/>
+  <origin xyz="2 0 ${cyllen/2}"/>
+</joint> -->
+
+
+
+</robot>

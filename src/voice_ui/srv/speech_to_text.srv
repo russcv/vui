@@ -1,0 +1,7 @@
+# request
+bool stt_flag # Request message: Bool to turn on mic and listen
+---
+# response
+string text # Response message: Text of translation.
+string color # Color of the object
+bool success # Response message: True/False Success or failure of speech-to-text.

@@ -1,0 +1,344 @@
+<?xml version="1.0"?>
+<robot name="objects" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Include Camera plugin -->
+  <xacro:include filename="$(find workspace)/urdf/objects.plugins.xacro" />
+
+  <!-- Color Definitions -->
+  <material name="red">
+    <color rgba="0.8 0.0 0.0 1.0"/>
+  </material>
+  <material name="blue">
+    <color rgba="0.0 0.0 0.8 1.0"/>
+  </material>
+  <material name="green">
+    <color rgba="0.0 0.8 0.0 1.0"/>
+  </material>
+  <material name="white">
+    <color rgba="1.0 1.0 1.0 1.0"/>
+  </material>
+  <material name="yellow">
+    <color rgba="0.8 0.8 0.0 1.0"/>
+  </material>
+  <material name="gray">
+    <color rgba="0.7 0.7 0.7 1.0"/>
+  </material>
+  <material name="wood">
+    <color rgba="${205/255} ${133/255} ${63/255} 1" />
+  </material>
+
+  <xacro:property name="base_l" value="10"/>
+  <xacro:property name="base_w" value="10"/>
+  <xacro:property name="base_h" value="0.2"/>
+  <xacro:property name="cyllen" value="0.6"/>
+  <xacro:property name="cylrad" value="0.3"/>
+  <xacro:property name="box_l" value="0.6"/>
+  <xacro:property name="box_w" value="0.6"/>
+  <xacro:property name="box_h" value="0.6"/>
+
+  <!-- Box 1 -->
+  <link name="base">
+    <visual>
+      <geometry>
+        <box size="${base_l} ${base_w} ${base_h}"/>
+      </geometry>
+      <origin xyz="0 0 ${base_h/2}" rpy="0 0 0"/>
+      <material name="wood"/>
+    </visual>
+    <!-- <inertial>
+        <mass value="10" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <inertia ixx="0.17" ixy="0.00" ixz="0" iyy="0.17" iyz="0" izz="0.17" />
+    </inertial> -->
+    <collision>
+      <geometry>
+        <box size="${base_l} ${base_w} ${base_h}"/>
+      </geometry>
+      <origin xyz="0 0 ${base_h/2}" rpy="0 0 0"/>
+    </collision>
+  </link>
+  <gazebo reference="base">
+    <material>Gazebo/Wood</material>
+  </gazebo>
+<!-- Cylinder 1 -->
+  <link name="cyl_1">
+    <visual>
+      <geometry>
+        <cylinder radius="${cylrad}" length="${cyllen}"/>
+      </geometry>
+      <origin xyz="${cylrad*4} -${cylrad*6} ${cyllen/2+base_h}" rpy="0 0 0"/>
+      <material name="red"/>
+    </visual>
+    <inertial>
+        <mass value="5" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <inertia ixx="0.004" ixy="0.001" ixz="0" iyy="0.006" iyz="0" izz="0.007" />
+    </inertial>
+    <collision>
+      <geometry>
+      	<cylinder radius="${cylrad}" length="${cyllen}"/>
+      </geometry>
+      <origin xyz="${cylrad*4} -${cylrad*6} ${cyllen/2+base_h}" rpy="0 0 0"/>
+    </collision>
+  </link>
+  <gazebo reference="cyl_1">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+<!-- Cylinder 2 -->
+<link name="cyl_2">
+  <visual>
+    <geometry>
+      <cylinder radius="${cylrad}" length="${cyllen}"/>
+    </geometry>
+    <origin xyz="-${cylrad*3} -${cylrad*6} ${cyllen/2+base_h}" rpy="0 0 0"/>
+    <material name="blue"/>
+  </visual>
+  <inertial>
+      <mass value="5" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <inertia ixx="0.004" ixy="0.001" ixz="0" iyy="0.006" iyz="0" izz="0.007" />
+  </inertial>
+  <collision>
+    <geometry>
+      <cylinder radius="${cylrad}" length="${cyllen}"/>
+    </geometry>
+    <origin xyz="-${cylrad*3} -${cylrad*6} ${cyllen/2+base_h}" rpy="0 0 0"/>
+  </collision>
+</link>
+<gazebo reference="cyl_2">
+  <material>Gazebo/Blue</material>
+</gazebo>
+
+<!-- Cylinder 3 -->
+  <link name="cyl_3">
+    <visual>
+      <geometry>
+        <cylinder radius="${cylrad}" length="${cyllen}"/>
+      </geometry>
+      <origin xyz="-${cylrad*6} ${cylrad*8} ${cyllen/2+base_h}" rpy="0 0 0"/>
+      <material name="red"/>
+    </visual>
+    <inertial>
+        <mass value="5" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <inertia ixx="0.004" ixy="0.001" ixz="0" iyy="0.006" iyz="0" izz="0.007" />
+    </inertial>
+    <collision>
+      <geometry>
+      	<cylinder radius="${cylrad}" length="${cyllen}"/>
+      </geometry>
+      <origin xyz="-${cylrad*6} ${cylrad*8} ${cyllen/2+base_h}" rpy="0 0 0"/>
+    </collision>
+  </link>
+  <gazebo reference="cyl_3">
+    <material>Gazebo/Red</material>
+  </gazebo>
+
+  <!-- Box 1 -->
+  <link name="box_1">
+    <visual>
+      <geometry>
+        <box size="${box_l} ${box_w} ${box_h}"/>
+      </geometry>
+      <origin xyz="${box_l*2} ${box_w*3} ${box_h/2+base_h}" rpy="0 0 0"/>
+      <material name="blue"/>
+    </visual>
+    <inertial>
+        <mass value="1" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <inertia ixx="0.17" ixy="0.00" ixz="0" iyy="0.17" iyz="0" izz="0.17" />
+    </inertial>
+    <collision>
+      <geometry>
+        <box size="${box_l} ${box_w} ${box_h}"/>
+      </geometry>
+      <origin xyz="${box_l*2} ${box_w*3} ${box_h/2+base_h}" rpy="0 0 0"/>
+    </collision>
+  </link>
+  <gazebo reference="box_1">
+    <material>Gazebo/Blue</material>
+  </gazebo>
+
+  <!-- Box 2 -->
+  <link name="box_2">
+    <visual>
+      <geometry>
+        <box size="${box_l} ${box_w} ${box_h}"/>
+      </geometry>
+      <origin xyz="-${box_l*5} ${box_w*3} ${box_h/2+base_h}" rpy="0 0 0"/>
+      <material name="green"/>
+    </visual>
+    <inertial>
+        <mass value="1" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <inertia ixx="0.17" ixy="0.00" ixz="0" iyy="0.17" iyz="0" izz="0.17" />
+    </inertial>
+    <collision>
+      <geometry>
+        <box size="${box_l} ${box_w} ${box_h}"/>
+      </geometry>
+      <origin xyz="-${box_l*5} ${box_w*3} ${box_h/2+base_h}" rpy="0 0 0"/>
+    </collision>
+  </link>
+  <gazebo reference="box_2">
+    <material>Gazebo/Green</material>
+  </gazebo>
+
+  <!-- Box 3 -->
+  <link name="box_3">
+    <visual>
+      <geometry>
+        <box size="${box_l} ${box_w} ${box_h}"/>
+      </geometry>
+      <origin xyz="${box_l*6} 0 ${box_h/2+base_h}" rpy="0 0 0"/>
+      <material name="green"/>
+    </visual>
+    <inertial>
+        <mass value="1" />
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <inertia ixx="0.17" ixy="0.00" ixz="0" iyy="0.17" iyz="0" izz="0.17" />
+    </inertial>
+    <collision>
+      <geometry>
+        <box size="${box_l} ${box_w} ${box_h}"/>
+      </geometry>
+      <origin xyz="${box_l*6} 0 ${box_h/2+base_h}" rpy="0 0 0"/>
+    </collision>
+  </link>
+  <gazebo reference="box_3">
+    <material>Gazebo/Green</material>
+  </gazebo>
+
+  <!-- Add a camera in the URDF -->
+  <xacro:property name="camera_yaw_angle" value="1.5708" />
+  <xacro:property name="camera_roll_angle" value= "0"/> <!--"${-pi/2 - pi/6}" -->
+  <xacro:property name="camera_pitch_angle" value= "1.5708"/>
+  <xacro:property name="camera_depth" value="0.05" />
+  <xacro:property name="camera_height" value="0.07" />
+  <xacro:property name="camera_length" value="0.15" />
+  <xacro:property name="camera_z_offset" value="0.01" />
+  <!-- Size of square 'camera' box -->
+  <xacro:property name="camera_x" value="0" />
+  <!-- x position of 'camera' box -->
+  <xacro:property name="camera_y" value="0.0" />
+  <!-- y position of 'camera' box -->
+  <xacro:property name="camera_z" value="10" />
+  <!-- z position of 'camera' box -->
+  <joint name="camera_joint" type="fixed">
+    <axis xyz="0 0.2 0" />
+    <origin xyz="${camera_x} ${camera_y} ${camera_z}"
+      rpy="${camera_roll_angle} ${camera_pitch_angle} ${camera_yaw_angle}"/>
+    <parent link="base"/>
+    <child link="camera_link"/>
+  </joint>
+  <!-- Camera -->
+  <link name="camera_link">
+    <collision>
+      <origin xyz="0 0 ${-1 * camera_depth - camera_z_offset}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${camera_length} ${camera_height} ${camera_depth}"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 ${-1 * camera_depth - camera_z_offset}" rpy="0 0 0"/>
+      <geometry>
+        <box size="${camera_length} ${camera_height} ${camera_depth}"/>
+      </geometry>
+      <material name="red"/>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+  <gazebo reference="camera_link">
+    <sensor type="camera" name="camera1">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>600</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise is sampled independently per pixel on each frame.
+               That pixel's noise value is added to each of its color
+               channels, which at that point lie in the range [0,1]. -->
+          <mean>0.0</mean>
+          <stddev>0.007</stddev>
+        </noise>
+      </camera>
+
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>mybot/camera</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera_link</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+  <!-- Links -->
+  <joint name="joint_1" type="fixed">
+    <axis xyz = "0 0 ${base_h/2}" />
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="base"/>
+    <child link="cyl_1"/>
+  </joint>
+
+  <joint name="joint_2" type="fixed">
+    <axis xyz = "0 0 ${base_h/2}" />
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="base"/>
+    <child link="cyl_2"/>
+  </joint>
+
+  <joint name="joint_3" type="fixed">
+    <axis xyz = "0 0 ${base_h/2}" />
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="base"/>
+    <child link="cyl_3"/>
+  </joint>
+
+  <joint name="joint_4" type="fixed">
+    <axis xyz = "0 0 ${box_h/2+base_h}" />
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="base"/>
+    <child link="box_1"/>
+  </joint>
+
+  <joint name="joint_5" type="fixed">
+    <axis xyz = "0 0 ${box_h/2+base_h}" />
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="base"/>
+    <child link="box_2"/>
+  </joint>
+
+  <joint name="joint_6" type="fixed">
+    <axis xyz = "0 0 ${box_h/2+base_h}" />
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <parent link="base"/>
+    <child link="box_3"/>
+  </joint>
+
+
+</robot>
