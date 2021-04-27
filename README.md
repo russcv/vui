@@ -27,10 +27,12 @@ If using Catkin make
 $ cd ~/catkin_ws  
 $ catkin_make`  
 Or if using catkin tools  
-`$ source /opt/ros/noetic/setup.bash  
+```
+$ source /opt/ros/noetic/setup.bash  
 $ cd ~/catkin_ws  
 $ catkin init  
-$ catkin build`  
+$ catkin build  
+```  
 If you are interesting in installing and using catkin tools instead: https://catkin-tools.readthedocs.io/en/latest/installing.html
 You may need to install a couple dependencies (taken from https://answers.ros.org/question/355478/problems-with-catkin-with-ros-noetic/)  
 `$ sudo apt install python3-catkin-lint python3-pip  
