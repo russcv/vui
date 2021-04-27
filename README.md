@@ -15,8 +15,8 @@ The helpful comment here points to a website to download pyaudio directly from h
     Install SpeechRecognition $ pip install SpeechRecognition
 
 
-* Optional step: ensure ROS is installed (follow steps here: http://wiki.ros.org/noetic/Installation/Ubuntu).
-* Create catkin directory
+1. Optional step: ensure ROS is installed (follow steps here: http://wiki.ros.org/noetic/Installation/Ubuntu).
+2. Create catkin directory
 In terminal type:
 $ mkdir -p catkin_ws/src
 Copy github:
