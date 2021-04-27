@@ -10,7 +10,8 @@ In terminal type:
 `$ mkdir -p catkin_ws/src`  
 Copy github:  
 `$ cd catkin_ws/src`  
-`$ git clone https://github.com/russcv/vui.git`  
+`$ git clone https://github.com/russcv/vui.git` 
+
 If using Catkin make  
 ```
 $ source /opt/ros/noetic/setup.bash  
