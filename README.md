@@ -1,7 +1,7 @@
 # vui
-Repository by Russell Valente
-Code created for WPI RBE HRI
-Worcester Polytechnic Institute (WPI)
+Repository by Russell Valente  
+Code created for WPI RBE HRI  
+Worcester Polytechnic Institute (WPI)  
 Dept. of Robotics Engineering - Human-Robot Interaction Directed Research \
 
 1. Optional step: ensure ROS is installed (follow steps here: http://wiki.ros.org/noetic/Installation/Ubuntu).  
