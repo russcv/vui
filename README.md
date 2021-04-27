@@ -35,7 +35,7 @@ pip3 install osrf-pycommon
   
 3. Install dependencies for this workspace  
 ```
-Pip3 install SpeechRecognition  
+pip3 install SpeechRecognition  
 sudo apt install python3-pyaudio
 ```
   
