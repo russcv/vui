@@ -20,14 +20,17 @@ def stt_client(x):
         stt = rospy.ServiceProxy('speech_to_text',speech_to_text)
         # Call the service here
         service_response = stt(x)
-        parsed_phrase = [service_response.text, service_response.color]
+        parsed_phrase = [service_response.text, service_response.color, service_response.ori]
         rospy.loginfo("stt output: %s"%parsed_phrase)
-        rospy.loginfo("Robot is grabbing the %s object."%parsed_phrase[1])
+        if service_response.color:
+            rospy.loginfo("Robot is grabbing the %s object."%parsed_phrase[1])
+        if service_response.ori:
+            rospy.loginfo("Robot is grabbing the %s object."%parsed_phrase[2])
         rospy.loginfo('mic off')
         #return the response to the calling function
-        
 
         return parsed_phrase
+        
     except rospy.ServiceException as e:
         rospy.loginfo("Service call failed: %s"%e)
 

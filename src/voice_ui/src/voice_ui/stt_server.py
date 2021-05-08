@@ -94,15 +94,29 @@ def stt_request(req):
 
     # Check flag
     if(req.stt_flag == True):
+        res.text = ""
+        res.color = ""
+        res.ori = ""
         rospy.loginfo('Turning on mic...')
         phrase = str(mic()).lower()
         # rospy.loginfo("phrase: %s" %phrase)
         phrase_parsed = parse_stt(phrase)
-        color = parse_stt.get_color(phrase_parsed)
+        try:
+            color = parse_stt.get_color(phrase_parsed)
+        except:
+            rospy.loginfo("Try specifying a color")
+            color = ""
+        res.color = color
+
+        try:
+            ori = parse_stt.get_location(phrase_parsed)
+            # res.ori = ori
+        except:
+            ori = ""
+        res.ori = ori
         # color = "blue"
         # rospy.loginfo("phrase: %s" %phrase)
         res.text = phrase
-        res.color = color
         # rospy.loginfo("phrase: %s" %phrase)
         res.success = True
 
@@ -112,8 +126,9 @@ def stt_request(req):
 
     else:
         rospy.loginfo('Mic is off')
-        res.text = "N/A"
+        res.text = ""
         res.color = ""
+        res.ori = ""
         res.success = false
     # Return text from speech
     return res
