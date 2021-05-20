@@ -44,6 +44,13 @@ source devel/setup.bash
 roslaunch workspace_gazebo workspace.launch
 ```
 
+5. After everything is loaded, with the window labeled 'Image' currently
+selected press any key on your keyboard to initiate talking to the system.  
+It will take any color, shape or orientation as input to describe which object
+are referring to. All objects that fit the description be highlighted with
+a red border.
+
+
 FAQ:  
 Occasionally the window with the camera feed labeled 'Image' will appear as
 half gray and half black. When this happens, shut down ROS (CTRL+C) and again
