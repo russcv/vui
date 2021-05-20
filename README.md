@@ -32,16 +32,21 @@ You may need to install a couple dependencies (taken from https://answers.ros.or
 sudo apt install python3-catkin-lint python3-pip  
 pip3 install osrf-pycommon
 ```  
-  
+
 3. Install dependencies for this workspace  
 ```
 pip3 install SpeechRecognition  
 sudo apt install python3-pyaudio
 ```
-  
+
 4. Run the launch file:
 ```
 cd ~/catkin_ws  
 source devel/setup.bash  
 roslaunch workspace_gazebo workspace.launch
 ```
+
+FAQ:  
+Occasionally the window with the camera feed labeled 'Image' will appear as
+half gray and half black. When this happens, shut down ROS (CTRL+C) and again
+run roslaunch. I'm not sure why it sometimes improperly starts.
