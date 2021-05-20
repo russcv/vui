@@ -8,6 +8,8 @@ Dept. of Robotics Engineering - Human-Robot Interaction Directed Research \
 2. Create catkin directory  
 In terminal type:  
 ```
+mkdir -p catkin_ws/src
+cd catkin_ws/src
 git clone https://github.com/russcv/vui.git
 ```
 
