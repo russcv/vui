@@ -1,0 +1,13 @@
+# @author: Russell Valente
+# WPI - Robotics Engineering Dept
+# rcvalente2@wpi.edu
+
+# request
+bool stt_flag # Request message: Bool to turn on mic and listen
+---
+# response
+string text # Response message: Text of translation.
+string color # Color of the object
+string ori # orientation = left, right, top, bottom
+string shape # shape of object - circle, square, etc
+bool success # Response message: True/False Success or failure of speech-to-text.
