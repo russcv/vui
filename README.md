@@ -2,8 +2,10 @@
 Repository by Russell Valente  
 Code created for WPI RBE HRI  
 Worcester Polytechnic Institute (WPI)  
-Dept. of Robotics Engineering - Human-Robot Interaction Directed Research \
+Dept. of Robotics Engineering - Human-Robot Interaction Directed Research  
 
+Created and successfully runs on Ubuntu Focal Fossa (20.04) and ROS Noetic.  
+  
 1. Optional step: ensure ROS is installed (follow steps here: http://wiki.ros.org/noetic/Installation/Ubuntu).  
 2. Create catkin directory  
 In terminal type:  
